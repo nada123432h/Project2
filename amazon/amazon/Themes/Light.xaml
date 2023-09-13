@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="amazon.Themes.Light">
+    <Color x:Key="BrandColor">#005198</Color>
+    <Color x:Key="SecondaryColor">#484848</Color>
+    <Color x:Key="BgColor">#dee0e3</Color>
+
+    <Color x:Key="BoxBg">#3F2305</Color>
+    <Color x:Key="TextColorlogin">#484848</Color>
+    <Color x:Key="TextColor">#ffffff</Color>
+    <Color x:Key="LinkColor">#27687c</Color>
+    <Color x:Key="SplashBgColor">#ffffff</Color>
+    <Color x:Key="HeaderDown">#4C4C6D</Color>
+    <Color x:Key="coloricon">#394867</Color>
+    <Color x:Key="Icon">#606C5D</Color>
+
+    <Color x:Key="BrandRed">#e76363</Color>
+    <Color x:Key="BrandGreen">#84be70</Color>
+    <Color x:Key="BrandYellow">#eab15f</Color>
+
+    <Color x:Key="BrandWhite">#F6F4EB</Color>
+
+    <Color x:Key="GrayLighter">#1E3163</Color>
+    <Color x:Key="GrayLight">#9b9b9b</Color>
+    <Color x:Key="Gray">#707070</Color>
+    <Color x:Key="GrayDark">#5c5c5c</Color>
+    <Color x:Key="GrayDarker">#3c3c3c</Color>
+    <Color x:Key="GrayDarkest">#333333</Color>
+    <Color x:Key="GrayDarkerR">#1A1A1A</Color>
+
+    <Color x:Key="Black">#000000</Color>
+
+    <Color x:Key="NavTextColor">#454545</Color>
+    <Color x:Key="ItemBlockBG">#e9e9e9</Color>
+</ResourceDictionary>

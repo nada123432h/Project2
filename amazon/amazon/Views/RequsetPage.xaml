@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             xmlns:Controls="clr-namespace:amazon.Controls"
+             xmlns:vm="clr-namespace:amazon.ViewModels"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:rating="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms"
+             x:Name="page"
+             x:Class="amazon.Views.RequsetPage">
+    <ContentPage.BindingContext>
+        <vm:ShoesCategoryViewModel></vm:ShoesCategoryViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        
+        <Grid BackgroundColor="White" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            
+            </Grid.RowDefinitions>
+
+            <Controls:Toolbar BindingContext="{x:Reference page}" x:Name="toolbar" Hasmenu="False" Title="{Binding Title}"></Controls:Toolbar>
+
+            <ScrollView Grid.Row="1">
+                <Grid Grid.Row="1" Padding="10" RowSpacing="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+       
+                    </Grid.RowDefinitions>
+
+
+                    <Image Grid.Row="1"
+			               WidthRequest="80" HeightRequest="100"
+			               Source = "{Binding SelectItem2.ImgName}">
+                    </Image>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand"  Grid.Row="2" >
+                        
+                
+                    <Label   HorizontalTextAlignment="Center"   Style="{StaticResource lblValueSpecial}" Text="Cost :"></Label>
+                    <Label  Grid.Row="2" HorizontalOptions="EndAndExpand" Style="{StaticResource lblTitle}" Padding="0,3,0,0"
+  
+            Text="{Binding SelectItem2.ItemPrice}"/>   
+                    </StackLayout>
+
+                    <rating:SfRating  Grid.Row="3" HorizontalOptions="Center" Precision="Half" ItemCount="5" 
+              ReadOnly="true" ItemSize="20" Value="4" >
+                        <rating:SfRating.RatingSettings>
+                            <rating:SfRatingSettings RatedFill="Gold" UnRatedFill="Gray" />
+                        </rating:SfRating.RatingSettings>
+                    </rating:SfRating>
+
+                    <Grid  Grid.Row="4" RowSpacing="15" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+
+
+                        <Entry Grid.Row="2" Grid.ColumnSpan="2" Text="{Binding Data.Address}" HorizontalOptions="Fill"  WidthRequest="100" Keyboard="Text" ClearButtonVisibility="WhileEditing"  Placeholder="Your Address"></Entry>
+
+                        <Entry Grid.Row="3" Grid.ColumnSpan="2" Text="{Binding Data.Qty}" HorizontalOptions="Fill"  WidthRequest="100" Keyboard="Numeric" ClearButtonVisibility="WhileEditing"  Placeholder="Quantity"></Entry>
+
+                       
+
+
+
+
+
+                    </Grid>
+                    <StackLayout Grid.Row="6"   >
+                        <Button Text="Save Request" Command="{Binding PostService}"   ></Button>
+                    </StackLayout>
+                </Grid>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

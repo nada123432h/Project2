@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:Controls="clr-namespace:amazon.Controls" xmlns:vm="clr-namespace:amazon.ViewModels"
+             x:Class="amazon.Views.favPage"
+             Title="faviourite page"
+                 xmlns:xct="http://xamarin.com/schemas/2020/toolkit" xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Name="favpage">
+    <ContentPage.BindingContext>
+        <vm:FvouritePageViewModel>
+
+        </vm:FvouritePageViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Controls:Toolbar Title="{Binding Title,Source={x:Reference favpage } } " Hasmenu="False"
+                            
+                                   HeightRequest="50"
+                     
+                                         ></Controls:Toolbar>
+            <ScrollView>
+
+
+                <CollectionView ItemsSource="{Binding FavouriteProducts2} " >
+                    <CollectionView.ItemTemplate >
+
+                        <DataTemplate >
+                            <SwipeView >
+                                <SwipeView.LeftItems>
+                                    <SwipeItems>
+                                        <SwipeItem BackgroundColor="Red"   Command="{Binding BindingContext.Trash,Source={x:Reference favpage}}" CommandParameter="{Binding }">
+                                            <SwipeItem.IconImageSource >
+                                                <FontImageSource Glyph="" FontFamily="FontIconSolid" >
+
+                                                </FontImageSource>
+
+                                            </SwipeItem.IconImageSource>
+                                        </SwipeItem>
+
+                                    </SwipeItems>
+                                </SwipeView.LeftItems>
+                                <yummy:PancakeView Margin="5" Style="{StaticResource ServiceBox}">
+                                    <StackLayout>
+                                        <Image Source="{Binding ImageName}"></Image>
+                                        <Label Text="{Binding ItemName}" TextColor="Black" FontSize="18" HorizontalTextAlignment="Center"></Label>
+                                        <Label Text="{Binding PurchasePrice}"  TextColor="Black" FontSize="18" HorizontalTextAlignment="Center"></Label>
+                                        <BoxView BackgroundColor="Gray" WidthRequest="1" HeightRequest="1" VerticalOptions="FillAndExpand"></BoxView>
+                              
+
+        </StackLayout>
+                                </yummy:PancakeView>
+                            </SwipeView>
+                            
+                            
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

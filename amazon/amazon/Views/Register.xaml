@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Controls:CustomPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                   xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:Controls="clr-namespace:amazon.Controls"
+                     xmlns:vm="clr-namespace:amazon.ViewModels" 
+                     x:Name="page"
+                     x:Class="amazon.Views.Register">
+    <ContentPage.Background>
+
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+
+            <GradientStop Offset="0.0" Color="#2D4356"></GradientStop>
+            <GradientStop Offset="1.1" Color="#27374D"></GradientStop>
+        </LinearGradientBrush>
+
+    </ContentPage.Background>
+    <Controls:CustomPage.BindingContext>
+        <vm:RegisterViewModel></vm:RegisterViewModel>
+    </Controls:CustomPage.BindingContext>
+    <Controls:CustomPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Entry" x:Key="InvalidStyle">
+
+                <Setter Property="TextColor" Value="red"></Setter>
+            </Style>
+            <Style TargetType="Entry" x:Key="ValidStyle">
+
+                <Setter Property="TextColor" Value="Black"></Setter>
+            </Style>
+ 
+        </ResourceDictionary>
+    </Controls:CustomPage.Resources>
+    <Controls:CustomPage.Content>
+        <StackLayout>
+            <Controls:Toolbar Title="{Binding Title,Source={x:Reference page}}" Hasmenu="False" 
+                                HeightRequest="50"
+                             ></Controls:Toolbar>
+ 
+
+            <ScrollView>
+                <Grid Padding="20" RowSpacing="20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70">
+                        </ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+        
+                    </Grid.RowDefinitions>
+
+                    <StackLayout Grid.Row="0" Grid.ColumnSpan="2">
+                        <StackLayout Orientation="Horizontal">
+                            <Label x:Name="lblFirstName" Grid.Row="0" Text="First name" TextColor="#DAFFFB" FontSize="15"  VerticalTextAlignment="Center"></Label>
+                            <Entry x:Name="txtFirstName" Grid.Column="1" Placeholder="First Name"
+                                   Text="{Binding DataModels.FirstName  }"
+                              
+                                   HorizontalOptions="FillAndExpand"
+                                   xct:SetFocusOnEntryCompletedBehavior.NextElement="{x:Reference txtEmail}">
+                                <Entry.Behaviors>
+                                    <xct:TextValidationBehavior MinimumLength="1"
+                                                    MaximumLength="10"
+                                                    Flags="ValidateOnValueChanging"
+                                                    x:Name="firstNameValidator" >
+
+                                    </xct:TextValidationBehavior>
+                                </Entry.Behaviors>
+
+                            </Entry>
+                        </StackLayout>
+                       
+                    </StackLayout>
+
+                    <Label Text="please enter a valid email" TextColor="Red" Grid.Row="1"
+                           
+                           Grid.Column="1"
+                           Padding="0,0,130,20"
+                    
+                               IsVisible="{Binding IsNotValid,Source={x:Reference txtcemailvliditor}}"></Label>
+                    <Label Grid.Row="1" Text="Email" TextColor="#DAFFFB" FontSize="19" VerticalTextAlignment="Center"></Label>
+                    <Entry x:Name="txtEmail" Grid.Row="1" Grid.Column="1" Placeholder="Email" 
+                         
+                              Text="{Binding DataModels.Email  }"
+                           Keyboard="Email">
+                        <Entry.Behaviors>
+                            <xct:EmailValidationBehavior DecorationFlags="Trim"
+                                                         x:Name="txtcemailvliditor"
+                                                     Flags="ValidateOnValueChanging">
+
+                            </xct:EmailValidationBehavior>
+                        </Entry.Behaviors>
+                    </Entry>
+
+                    <Label Grid.Row="2" Text="Password" TextColor="#DAFFFB" FontSize="15"  VerticalTextAlignment="Center"></Label>
+                    <Entry Grid.Row="2" Grid.Column="1" Keyboard="Text" 
+                           x:Name="PasswordEntry"
+                              Text="{Binding DataModels.Password  }"
+                        Placeholder="Password">
+
+                  
+                     
+                    </Entry>
+                    <Label Grid.Row="3" Text="Confirm Password" TextColor="#DAFFFB" FontSize="15"  VerticalTextAlignment="Center"></Label>
+                    <Entry Grid.Row="3" Grid.Column="1" Keyboard="Text" 
+                              
+                           x:Name="s"
+                        Placeholder="Confirm Password">
+
+                    
+                            <Entry.Behaviors>
+                                <xct:RequiredStringValidationBehavior
+                           
+                                    Flags="ValidateOnValueChanging"
+                                    InvalidStyle="{StaticResource InvalidStyle}"
+                                     ValidStyle="{StaticResource ValidStyle}"
+                                    
+                                       RequiredString="{Binding Text, 
+                         Source={x:Reference PasswordEntry}}" />
+
+                       
+                          
+                        </Entry.Behaviors>
+           
+
+
+
+                    </Entry>
+
+                    <Label Grid.Row="4" Text="Date of birth" TextColor="#DAFFFB" FontSize="15"   VerticalTextAlignment="Center"></Label>
+                    <DatePicker x:Name="dtBirth" Grid.Row="4" Grid.Column="1"
+                     ></DatePicker>
+
+                    <Label Grid.Row="5" Text="Country" TextColor="#DAFFFB" FontSize="15"   VerticalTextAlignment="Center"></Label>
+                    <Picker  Grid.Row="5" Grid.Column="1"
+                          
+                     SelectedItem="{Binding SelectedCountry}"
+                 Title="Select Country">
+                        <Picker.Items>
+                            <x:String>France</x:String>
+                            <x:String>Italy</x:String>
+                            <x:String>England</x:String>
+                            <x:String>US</x:String>
+                        </Picker.Items>
+                      
+                    </Picker>
+                    <Label Grid.Row="6" Text="Gender"  TextColor="#DAFFFB" FontSize="15"  VerticalTextAlignment="Center"></Label>
+                    <StackLayout Grid.Row="6" Grid.Column="1" Orientation="Horizontal">
+                        <RadioButton  GroupName="group1" Value="Male" Margin="10,0,0,0" Content="Male">
+                            <RadioButton.Behaviors >
+                                <xct:EventToCommandBehavior EventName="CheckedChanged" Command="{Binding RadioButtonCommand}" CommandParameter="Male" />
+                            </RadioButton.Behaviors>
+                        </RadioButton>
+                        <RadioButton GroupName="group1" Value="Female" Margin="10,0,0,0" Content="Female" xct:IconTintColorEffect.TintColor="Green">
+                            <RadioButton.Behaviors>
+                                <xct:EventToCommandBehavior EventName="CheckedChanged" Command="{Binding RadioButtonCommand}" CommandParameter="Female"  />
+                            </RadioButton.Behaviors>
+                        </RadioButton>
+                    </StackLayout>
+
+                    <Button Text="Register" Grid.Row="7" TextTransform="None" FontAttributes="Bold" FontSize="Medium" Style="{StaticResource Btprimary}" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" Command="{Binding Register}"></Button>
+
+                   
+                
+                </Grid>
+            </ScrollView>
+
+        </StackLayout>
+    </Controls:CustomPage.Content>
+</Controls:CustomPage>

@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="toolbar"
+             x:Class="amazon.Controls.Toolbar">
+    <ContentView.Resources>
+        <ResourceDictionary>
+       
+      
+        </ResourceDictionary>
+    </ContentView.Resources>
+  <ContentView.Content>
+        <Grid HeightRequest="50" HorizontalOptions="FillAndExpand"  ColumnSpacing="20" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="50"></ColumnDefinition>
+
+            </Grid.ColumnDefinitions>
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Offset="0.0" Color="#967E76"></GradientStop>
+                    <GradientStop Offset="1.1" Color="#73BBC9"></GradientStop>
+                </LinearGradientBrush>
+            </Grid.Background>
+         <Grid Grid.Column="0">
+    
+    <Image>
+        <Image.Source>
+            <FontImageSource FontFamily="FontIconSolid" Glyph="">
+                <FontImageSource.Color>
+                                <Color>#394867</Color>
+                </FontImageSource.Color>
+            </FontImageSource>
+        </Image.Source>
+    </Image>
+</Grid>
+
+            <Label x:Name="lblTitle" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="18" Text="Welcome in First Apllication" Grid.Column="1" ></Label>
+
+
+            <ImageButton Clicked="imgMenu_Clicked" BackgroundColor="Transparent"  Grid.Column="2" x:Name="imgMenu"  >
+                <ImageButton.Source>
+                    <FontImageSource  FontFamily="FontIconSolid" Glyph="" Color="#394867"></FontImageSource>
+                </ImageButton.Source>
+
+            </ImageButton>
+         
+                
+        
+            <Label Text="{Binding BindingContext.ItemsInCartCount, Source={x:Reference toolbar}}" FontSize="19"  HorizontalOptions="CenterAndExpand"
+                   TextColor="White" FontAttributes="Bold"   IsVisible="{Binding BindingContext.HasItemsInCart, Source={x:Reference toolbar}}"  />
+   
+
+        </Grid>
+      
+  </ContentView.Content>
+</ContentView>

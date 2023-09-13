@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:amazon.ViewModels"
+             xmlns:Controls="clr-namespace:amazon.Controls" 
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="amazon.Views.FvouritePage"
+             Title="Favourite Page"
+             x:Name="page"
+             >
+    <ContentPage.BindingContext>
+        <vm:FvouritePhonePageViewModel>
+
+        </vm:FvouritePhonePageViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout >
+            <Controls:Toolbar Title="{Binding Title,Source={x:Reference page}}" Hasmenu="False"
+                               HeightRequest="50"></Controls:Toolbar>
+            <ScrollView>
+                
+
+                <CollectionView ItemsSource="{Binding FavouritePhoneProducts2}" >
+                    <CollectionView.ItemsLayout >
+                        <LinearItemsLayout ItemSpacing="10" Orientation="Vertical"></LinearItemsLayout>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        
+                        <DataTemplate>
+                            <SwipeView>
+                                <SwipeView.LeftItems>
+                                    <SwipeItems>
+                                        <SwipeItem BackgroundColor="Red"   Command="{Binding BindingContext.Trash,Source={x:Reference page}}" CommandParameter="{Binding }">
+                                            <SwipeItem.IconImageSource >
+                                                <FontImageSource Glyph="" FontFamily="FontIconSolid" >
+
+                                                </FontImageSource>
+
+                                            </SwipeItem.IconImageSource>
+                                        </SwipeItem>
+                                       
+                                    </SwipeItems>
+                                </SwipeView.LeftItems >
+
+                              
+                                    <StackLayout  VerticalOptions="CenterAndExpand"  Orientation="Vertical">
+                                <Image Source="{Binding imgName}"  HeightRequest="200" VerticalOptions="StartAndExpand"></Image>
+                                    <Label Text="{Binding ItemName}" TextColor="Black" FontSize="18" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center"></Label>
+                                    <BoxView BackgroundColor="Gray" WidthRequest="1" HeightRequest="1" VerticalOptions="FillAndExpand"></BoxView> 
+                            </StackLayout>
+                        
+                                
+                            </SwipeView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

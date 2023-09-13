@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:amazon.ViewModels"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms" xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" xmlns:Controls="clr-namespace:amazon.Controls"
+             x:Class="amazon.Views.ShoesCategory"
+           
+             NavigationPage.HasNavigationBar="True"
+             x:Name="page"
+             BackgroundColor="#001C30"
+             >
+    <ContentPage.BindingContext>
+        <vm:ShoesCategoryViewModel>
+            
+            
+        </vm:ShoesCategoryViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Style="{StaticResource backgroundshoes}" >
+          
+                                    
+                                       
+                               
+            <syncfusion:SfListView  Grid.Row="3" 
+                                       SelectionBackgroundColor="Transparent"
+                                    
+                   ItemsSource="{Binding lstmodel2}"
+                                       ItemSpacing="10"
+                   ItemSize="180">
+                <syncfusion:SfListView.LayoutManager>
+                    <syncfusion:GridLayout SpanCount="2" />
+
+                </syncfusion:SfListView.LayoutManager>
+                <syncfusion:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <yummy:PancakeView Margin="5" Style="{StaticResource ServiceBoxShoes}">
+
+                                <StackLayout Spacing="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+                                    <Image Source="{Binding ImgName }" Grid.Row="1"  HeightRequest="100"></Image>
+                                    <Label Text="{Binding itemSize, StringFormat='Size {0}'}" HorizontalOptions="CenterAndExpand" TextColor="#2D4356" FontAttributes="Bold" FontSize="18"></Label>
+                                    <Label Text="{Binding ItemPrice, StringFormat='Price: {0}'}" HorizontalOptions="CenterAndExpand" TextColor="#2D4356" FontAttributes="Bold" FontSize="18"></Label>
+
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding BindingContext.SelectItem,Source={x:Reference page}}" CommandParameter="{Binding}"></TapGestureRecognizer>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                       
+                            </yummy:PancakeView>
+                        </ViewCell>
+                    </DataTemplate>
+                </syncfusion:SfListView.ItemTemplate>
+            </syncfusion:SfListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

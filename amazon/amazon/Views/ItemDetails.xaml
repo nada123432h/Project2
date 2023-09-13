@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:amazon.ViewModels" 
+             x:Name="toolbar"
+             xmlns:rating="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms" xmlns:Controls="clr-namespace:amazon.Controls"
+              NavigationPage.HasNavigationBar="False"
+             x:Class="amazon.Views.ItemDetails">
+    <ContentPage.BindingContext>
+        <vm:ItemDetailsViewModel></vm:ItemDetailsViewModel>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout  Spacing="10">
+            <Controls:Toolbar Hasmenu="False"
+                              HasItemsInCart="False"
+                            
+                                   HeightRequest="50"
+                                    
+                                         
+                                         ></Controls:Toolbar>
+            <Image Source="{Binding SelectedItem.ImageName}"></Image>
+            <Label Text="{Binding SelectedItem.ItemName}" TextColor="Black" FontSize="18" HorizontalTextAlignment="Center"></Label>
+            <Label Text="{Binding SelectedItem.PurchasePrice}"  TextColor="Black" FontSize="18" HorizontalTextAlignment="Center"></Label>
+            <rating:SfRating  Grid.Row="3" HorizontalOptions="Center" Precision="Half" ItemCount="5" 
+              ReadOnly="true" ItemSize="20"  >
+                <rating:SfRating.RatingSettings>
+                    <rating:SfRatingSettings RatedFill="Gold" UnRatedFill="Gray" />
+                </rating:SfRating.RatingSettings>
+            </rating:SfRating>
+            <Button Text="Add To Chart"  Command="{Binding SelectButtonCommand}" Style="{StaticResource Btprimary}" WidthRequest="200"  HorizontalOptions="EndAndExpand"></Button>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                <Label Text="Add To your Favourite" TextColor="#61677A" FontSize="18"  FontAttributes="Bold" HorizontalOptions="StartAndExpand" >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding selectFavbutton}">
+                        </TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Image>
+                    <Image.Source>
+                        <FontImageSource Glyph="" FontFamily="FontIconSolid" Color="#91C8E4" ></FontImageSource>
+                    </Image.Source>
+                </Image>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

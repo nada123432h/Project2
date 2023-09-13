@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:amazon.ViewModels" xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" xmlns:rating="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms" xmlns:Controls="clr-namespace:amazon.Controls"
+             x:Class="amazon.Views.ItemDetailsPhone"
+             NavigationPage.HasNavigationBar="False"
+             >
+    <ContentPage.BindingContext>
+        <vm:ItemDetailsViewModel></vm:ItemDetailsViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Spacing="10">
+            <Controls:Toolbar Hasmenu="False"
+                              HasItemsInCart="False"
+                            
+                                   HeightRequest="50"
+                                    
+                                         
+                                         ></Controls:Toolbar>
+            <yummy:PancakeView Margin="5" Style="{StaticResource ServiceBox}">
+                <StackLayout Spacing="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Image Source="{Binding SelectedItemPhone.imgName}"></Image>
+                    <Label Text="{Binding SelectedItemPhone.ItemName}" TextColor="Black" FontSize="18" HorizontalTextAlignment="Center"></Label>
+                </StackLayout>
+            </yummy:PancakeView>
+            <rating:SfRating  Grid.Row="3" HorizontalOptions="Center" Precision="Half" ItemCount="5" 
+              ReadOnly="true" ItemSize="20" Value="2" >
+                <rating:SfRating.RatingSettings>
+                    <rating:SfRatingSettings RatedFill="Gold" UnRatedFill="Gray" />
+                </rating:SfRating.RatingSettings>
+            </rating:SfRating>
+            <Button Text="Add To Chart" TextColor="White" Command="{Binding selectbutton}" Style="{StaticResource Btprimary}" BackgroundColor="#8062D6" WidthRequest="200"  HorizontalOptions="EndAndExpand"></Button>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                <Label Text="Add To your Favourite" TextColor="#61677A" FontSize="18"  FontAttributes="Bold" HorizontalOptions="StartAndExpand" >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding selectFavbuttonPhone}">
+                        </TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Image>
+                    <Image.Source>
+                        <FontImageSource Glyph="" FontFamily="FontIconSolid" Color="#91C8E4" ></FontImageSource>
+                    </Image.Source>
+                </Image>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
