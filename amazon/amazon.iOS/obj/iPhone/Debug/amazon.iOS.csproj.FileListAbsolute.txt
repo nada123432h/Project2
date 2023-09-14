@@ -1,0 +1,12 @@
+G:\amazon\amazon\amazon.iOS\obj\iPhone\Debug\actool\_PartialAppManifest.items
+G:\amazon\amazon\amazon.iOS\obj\iPhone\Debug\actool\_BundleResourceWithLogicalName.items
+G:\amazon\amazon\amazon.iOS\obj\iPhone\Debug\actool\_ProcessedImageAssetsPath.items
+G:\amazon\amazon\amazon.iOS\obj\iPhone\Debug\ibtool\_BundleResourceWithLogicalName.items
+G:\amazon\amazon\amazon.iOS\obj\iPhone\Debug\ibtool\_ProcessedInterfaceDefinitionsPath.items
+G:\amazon\amazon\amazon.iOS\obj\iPhone\Debug\coremlc\_PartialAppManifest.items
+G:\amazon\amazon\amazon.iOS\obj\iPhone\Debug\coremlc\_BundleResourceWithLogicalName.items
+G:\amazon\amazon\amazon.iOS\obj\iPhone\Debug\coremlc\_ProcessedCoreMLModelsPath.items
+G:\amazon\amazon\amazon.iOS\obj\iPhone\Debug\_ProcessedBundleResourcesPath.items
+G:\amazon\amazon\amazon.iOS\obj\iPhone\Debug\_ProcessedContentPath.items
+G:\amazon\amazon\amazon.iOS\obj\iPhone\Debug\optimized\
+G:\amazon\amazon\amazon.iOS\obj\iPhone\Debug\amazon.iOS.csproj.CoreCompileInputs.cache
